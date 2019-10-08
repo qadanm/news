@@ -1,0 +1,15 @@
+.HomeView{
+    height: 320;
+    width: 100%;
+    display: flex;
+}
+
+.LiveStream{
+    height: 315;
+    width: 50%;
+}
+
+.Article{
+    height: 315;
+    width: 50%;
+}

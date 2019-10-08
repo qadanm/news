@@ -1,13 +1,7 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #328980;
   min-height: 13vh;
   display: flex;
   flex-direction: column;
@@ -19,4 +13,56 @@
 
 .App-link {
   color: #09d3ac;
+} 
+
+.title{
+  width: 50vmin;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-size: calc(3.7px + 2vmin);
+  font-family: 'Roboto', sans-serif;
+}
+
+.img-container{
+  width: 50vmin;
+  height: 33vmin;
+}
+.img-container img{
+  width: 50vmin;
+  height: 33vmin;
+}
+
+
+.marquee3k .marquee3k__copy {
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.marquee3k{
+  background-color: #1c1c1c;
+  font-weight: bold;
+  color: rgb(155, 155, 155);
+  position: fixed;
+  bottom: 0
+}
+
+.news-square{
+  display: flex;
+  width: 50vmin;
+  height: 50vmin;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  transition: all .3s;
+
+}
+
+.articles{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
 }

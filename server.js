@@ -17,10 +17,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 // Put API routes here, before the "catch all" route
 
 app.use('/api/users', require('./routes/api/users'));
-
+app.use(require('./config/auth'));
 
 // The following "catch all" route (note the *)is necessary
-// for a SPA's client-side routing to properly work 
+// for a SPA's client-side routing to properly work   
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
