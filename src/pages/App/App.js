@@ -19,7 +19,8 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       news: [],
-      desc: ''
+      desc: '',
+      fromHome: false
     };
   }
 
@@ -32,7 +33,7 @@ class App extends Component {
     let desc = await news.articles.map(n => {
       return n.description
     }).join(' ')
-    this.setState({ news: news.articles, desc});
+    this.setState({ news: news.articles, desc, fromHome:true});
     console.log(this.state.news);
     console.log(this.state.desc);
     console.log("Hitiing")
@@ -41,6 +42,11 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
+  };
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({user: null});
   };
 
 
@@ -53,14 +59,29 @@ class App extends Component {
           news={this.state.news}
           desc={this.state.desc}
         />
-
         <Switch>
 
         <Route exact path='/' render={() => 
 
             <section>
-               <HomeView/>
-              {/* {this.state.news.map((news, idx) => 
+            <Route path='/'
+            render={(props) => 
+
+              <HomeView
+                {...props}
+                news={this.state.news}
+                index={this.state.news.map((news) => 
+                      {return(
+                        news
+                      )}
+                        )}
+        
+              />
+            
+              
+
+            }/>
+              {this.state.news.map((news, idx) => 
               // <>
 
               <div className='articles' key={idx}>
@@ -85,7 +106,7 @@ class App extends Component {
                 // </>
                 
               )}
-               */}
+              
             </section>
 
             
@@ -120,13 +141,15 @@ class App extends Component {
          render={(props) => 
 
           <ArticlePage
-            // {...props}
-            // news={this.state.news}
-            // index={this.state.news.map((news) => 
-            //       {return(
-            //         news
-            //       )}
-            //         )}
+            {...props}
+            fromHome={this.state.fromHome}
+            user={this.state.user}
+            news={this.state.news}
+            index={this.state.news.map((news) => 
+                  {return(
+                    news
+                  )}
+                    )}
     
           />
         

@@ -1,0 +1,41 @@
+/* <div className="ArticleViewContainer">
+
+<div className='img-container' style={{backgroundImage: "url(" + this.state.news.urlToImage + ")"}}>
+
+  <div className='TextContainer'>
+
+      <p className='TitleText'> {this.state.news.title} </p>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+<div className="DescriptionContainer">
+
+
+
+<p className="DescriptionText">{this.state.news.description}</p>
+
+
+
+</div>
+
+
+<div className="ReadMoreContainer">
+      
+
+
+<a className="ReadMoreText" href={`${this.state.news.url}`} Target="_blank">Read More</a>
+
+
+
+</div> */
+
+
+.ArticleViewContainer{
+    
+}

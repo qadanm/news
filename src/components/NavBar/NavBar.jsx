@@ -6,16 +6,16 @@ import Marquee3k from 'marquee3000';
 
 
 const NavBar = (props) => {
- let marquee = props.desc
+ const marquee = props.desc
 
- console.log(marquee)
+
 
   let nav = props.user ?
 
     <div className='NavBar-link-user'>
 
       <Link to='' onClick={props.handleLogout} className='NavBar-link' id='user'>Log Out</Link>
-
+      <Link to='' onClick='' className='NavBar-link' id='user'>Favorites</Link>
 
     </div>
     :
@@ -26,7 +26,6 @@ const NavBar = (props) => {
       <Link to='/signup' className='NavBar-link' id='user'>Sign Up</Link>
     </div>;
 
-{Marquee3k.init()}
 
 
   return (
@@ -37,12 +36,15 @@ const NavBar = (props) => {
       <Link to='/category=business' className='NavBar-link'>Business</Link>
       <Link to='/category=business' className='NavBar-link'>Entertainment</Link>
       <Link to='/category=business' className='NavBar-link'>Tech</Link> */}
+      <div className="Logo"><i className="fas fa-kiwi-bird"></i></div>
+      <div className="nav">
       {nav}
+      </div>
     </div>
-
-            
+    {Marquee3k.init()}
+      
     <div className="marquee3k" 
-        data-speed="0.55"
+        data-speed="0.3"
         data-pausable="bool">
 
         <p>{marquee}</p>

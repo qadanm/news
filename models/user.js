@@ -2,12 +2,18 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
+const favoritedArticleSchema = new mongoose.Schema({
+  title: String,
+  url: String
+})
+
 const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
+  articles: [favoritedArticleSchema],
   password: String
 }, {
-  timestamps: true
+  timestamps: true,
 });
 
 userSchema.set('toJSON', {

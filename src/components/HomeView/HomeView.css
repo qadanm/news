@@ -1,15 +1,29 @@
-.HomeView{
-    height: 320;
+.HomeViewContainer{
+    height: 50vmax;
     width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1c1c1c;
+    padding: 20px;
+    padding-bottom: 50px;
     display: flex;
 }
 
-.LiveStream{
-    height: 315;
-    width: 50%;
+.ContainerContainerContainer{
+    border-bottom: 50px solid #1c1c1c;
+    border-top: 50px solid #1c1c1c;
 }
 
-.Article{
-    height: 315;
-    width: 50%;
+.TextContainer{
+    width: 100%;
 }
+
+.TextContainer p{
+    width: 35vmin;
+    color: white;
+    text-align: center;
+}
+
+
+
