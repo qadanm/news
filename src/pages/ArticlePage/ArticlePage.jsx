@@ -17,107 +17,36 @@ import '../ArticlePage/ArticlePage.css'
 // }
 
 
-class ArticlePage extends Component {
-    state={
-      news: null,
-      user: null
-    }
-  
+function ArticlePage(props) {
+  const news = props.index[props.match.params.id];
 
-
-componentDidMount(){
-  console.log('000000000hitting')
-
-  console.log('State:', this.props.index[this.props.match.params.id])
-    this.setState({
-      news: this.props.index[this.props.match.params.id]
-    })
-   
-  }
-
-  createFavorite = (news = this.state.news) => {
-    news.findById(this.props.index[this.props.match.params.id], function(user) {
-      user.favoratedArticles.push();
-      user.save()
-    });
-  }
-
-  // componentDidUpdate(){
-  //   console.log('hitting')
-  // }
-  
-
-  render() {
-    // console.log(this.props.index)
-    console.log(this.state.news)
-    return(
-      <div>
-      {this.state.news ? 
-
+  return (
+    <div>
+      {news ?
         <div className='ContainerContainer'>
-        {/* {this.state.news ? */}
-        <>
-        <div className="ArticleViewContainer">
-  
-          <div className='img-container' style={{backgroundImage: "url(" + this.state.news.urlToImage + ")"}}>
-  
-            <div className='TextContainer'>
-  
-                <p className='TitleText'> {this.state.news.title} </p>
-  
+          <div className="ArticleViewContainer">
+            <div className='img-container' style={{backgroundImage: "url(" + news.urlToImage + ")"}}>
+              <div className='TextContainer'>
+                <p className='TitleText'> {news.title} </p>
+              </div>
             </div>
-  
           </div>
-  
+          <div className="DescriptionContainer">
+            <p className="DescriptionText">{news.description}</p>
+          </div>
+          <div className="ReadMoreContainer">
+            <a className="ReadMoreText" href={`${news.url}`} target="_blank">Read More</a>
+          </div>
         </div>
-  
-  
-  
-        <div className="DescriptionContainer">
-          
-  
-  
-        <p className="DescriptionText">{this.state.news.description}</p>
-  
-  
-  
-        </div>
-  
-  
-        <div className="ReadMoreContainer">
-                
-  
-  
-        <a className="ReadMoreText" href={`${this.state.news.url}`} target="_blank">Read More</a>
-  
-  
-  
-        </div>
-  
-        </>
-  
-        {/* :
-        console.log('not working article page')
-        } */}
-        </div>
-        // <div>dsf</div>
         :
         <div>
-          
-          loading... {console.log('the loading',this.state.news)}
-        
-        
+          <h1 style={{textAlign: "center"}}>loading...</h1> {console.log('the loading',news)}
         </div>
-      
       }
     </div>
-  
-    
-      
- 
-    )
-  }
+  );
 }
+
 
 // const ArticlePage = (props) => {
 
