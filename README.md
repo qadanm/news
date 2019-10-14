@@ -1,5 +1,5 @@
 
-# k i w i . news :satellite::iphone::computer:
+# k i w i . news
 
 
 
@@ -8,7 +8,7 @@
 
 ## :bird: Home Page
 
-![Home](planning/state/homepafe.png)
+![Home](planning/state/homepage.png)
 
 ## :bird: A clear grid view of the top 20 news articles
 
