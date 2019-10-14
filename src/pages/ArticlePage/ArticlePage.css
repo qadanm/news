@@ -1,41 +1,132 @@
-/* <div className="ArticleViewContainer">
+/* function ArticlePage(props) {
 
-<div className='img-container' style={{backgroundImage: "url(" + this.state.news.urlToImage + ")"}}>
+  const news = props.index[props.match.params.id];
+  return (
+    <div>
+      {news ?
+        <div className='ArticlePageContainer'>
+          <div className="ArticlePageViewContainer">
+            <div className='ArticlePageTextContainer'>
+              <p className='ArticlePageTitleText'> {news.title} </p>
+            </div>
+            <div className='ArticlePageImageContainer' style={{backgroundImage: "url(" + news.urlToImage + ")"}}></div>
+          </div>
+          <div className="ArticlePageDescriptionContainer">
+            <p className="ArticlePageDescriptionText">{news.description}</p>
+          </div>
+          <div className="ArticlePageReadMoreContainer">
+            <a className="ArticlePageReadMoreText" href={`${news.url}`} target="_blank">Read More</a>
+          </div>
+          <div className="ArticlePageCheckOutContainer">
+            <div className="ArticlePageCheckoutText">
+              <p>Check out these articles:</p>
+            </div>
+          </div>
+          {props.news.reverse().map((news, idx) => 
+              // <>
 
-  <div className='TextContainer'>
+              <div className='articles' key={idx}>
+                <Link
+                  to={`/article/${idx}`}
+                >
 
-      <p className='TitleText'> {this.state.news.title} </p>
+                <div className='news-square'>
+                  <div className='img-container'>
+                    <img src={news.urlToImage} />
+                  </div>
+                  <div className='title'>
+                   <p>{news.title}</p>
+                  </div>
+                </div>
 
-  </div>
+                </Link>
 
-</div>
-
-</div>
-
-
-
-<div className="DescriptionContainer">
-
-
-
-<p className="DescriptionText">{this.state.news.description}</p>
-
-
-
-</div>
+                </div>
 
 
-<div className="ReadMoreContainer">
-      
+                // </>
+                
+              )}
+        </div>
+        :
+        <div>
+          <h1 style={{textAlign: "center"}}>loading...</h1> {console.log('the loading',news)}
+        </div>
+      }
+    </div>
+  ); */
 
+.ArticlePageViewContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.ArticlePageImageContainer{
+  background-size: cover;
+  display: flex;
+  /* border: 20px solid #1c1c1c */
+}
+.ArticlePageTextContainer{
+  
+  }
+.ArticlePageTextContainer .ArticlePageTitleText{
+  font-size: 1.5em;
+  text-shadow: .5px .5px .7px #1c1c1cf0;
+  color: black !important;
+}
+.ArticlePageTitleText{
+  width: 80%;
+  margin: 20px;
+}
 
-<a className="ReadMoreText" href={`${this.state.news.url}`} Target="_blank">Read More</a>
+.ArticlePageImageContainer{
+  height: 30vmax;
+  background-size: cover;
+  width: 50%;
+  margin: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 20px;
+  padding-bottom: 50px;
+  display: flex;
+}
+.ArticlePageImageContainerContainer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
+.ArticlePageDescriptionContainer{
+  margin: 20px;
+  width: 80%;
+  font-size: 1.2em;
+}
+.ArticlePageReadMoreContainer{
+  background-color: rgb(8, 181, 181);
+  width: 20vmin;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
 
+.ArticlePageReadMoreContainer a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
 
-</div> */
-
-
-.ArticleViewContainer{
-    
+.ArticlePageCheckOutContainer{
+  display: flex;
+  justify-content: center;
+  background-color: #1c1c1c;
+  width: 100%;
+  margin-top: 60px;
+}
+.ArticlePageCheckoutText p{
+  color: white;
+  font-size: 1.6em;
 }

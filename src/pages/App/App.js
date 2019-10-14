@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Link, Router, withRouter } from 'react-router-dom';
 import '../../pages/App/App.css';
 import { getNews } from '../../services/news-api';
 import userService from '../../utils/userService';
@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    window.scrollTo(0,0)
     const news = await getNews();
     let desc = await news.articles.map(n => {
       return n.description
@@ -59,7 +60,7 @@ class App extends Component {
           news={this.state.news}
           desc={this.state.desc}
         />
-        <Switch>
+        <Switch onUpdate={() => window.scrollTo(0, 0)}>
 
         <Route exact path='/' render={() => 
 
@@ -67,6 +68,9 @@ class App extends Component {
             <Route path='/'
             render={(props) => 
 
+              <Link
+                  to={`/article/12`}
+                >
               <HomeView
                 {...props}
                 news={this.state.news}
@@ -77,10 +81,12 @@ class App extends Component {
                         )}
         
               />
+              </Link>
             
               
 
             }/>
+            <div className='ArticlesContainer'>
               {this.state.news.map((news, idx) => 
               // <>
 
@@ -106,6 +112,7 @@ class App extends Component {
                 // </>
                 
               )}
+              </div>
               
             </section>
 
@@ -137,7 +144,7 @@ class App extends Component {
          />
         }/>
 
-         <Route path='/article/:id'
+         <Route  path='/article/:id'
          render={(props) => 
 
           <ArticlePage

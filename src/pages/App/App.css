@@ -1,5 +1,7 @@
 
-
+*{
+  font-family: 'Roboto', sans-serif;
+}
 .App-header {
   background-color: #328980;
   min-height: 13vh;
@@ -11,25 +13,31 @@
   color: white;
 }
 
+
 .App-link {
   color: #09d3ac;
 } 
 
 .title{
-  width: 50vmin;
+  width: 37.5vmin;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  font-size: calc(3.7px + 2vmin);
+  font-size: calc(2.7px + 1.6vmin);
   font-family: 'Roboto', sans-serif;
 }
 
+.title p{
+  text-decoration: none!important;
+  color: black;
+}
+
 .img-container{
-  width: 50vmin;
-  height: 33vmin;
+  width: 37.5vmin;
+  height: 24.75vmin;
 }
 .img-container img{
-  width: 50vmin;
-  height: 33vmin;
+  width: 37.5vmin;
+  height: 24.75vmin;
 }
 
 
@@ -48,8 +56,8 @@
 
 .news-square{
   display: flex;
-  width: 50vmin;
-  height: 50vmin;
+  width: 37.5vmin;
+  height: 37.5vmin;
   flex-wrap: wrap;
   flex-direction: row;
   margin: 10px;
@@ -58,11 +66,34 @@
   transition: all .3s;
 
 }
-
+.news-square:hover{
+  transform: scale(1.02);
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,.15);
+}
+a {
+  text-decoration:none;
+}
 .articles{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
+}
+
+.ArticlesContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.title p{
+  padding: 10px;
+  margin: 5px;
+}
+.title{
+  
 }

@@ -10,12 +10,13 @@ const NavBar = (props) => {
 
 
 
+
   let nav = props.user ?
 
     <div className='NavBar-link-user'>
 
       <Link to='' onClick={props.handleLogout} className='NavBar-link' id='user'>Log Out</Link>
-      <Link to='' onClick='' className='NavBar-link' id='user'>Favorites</Link>
+      {/* <Link to='' onClick='' className='NavBar-link' id='user'>Favorites</Link> */}
 
     </div>
     :
@@ -31,12 +32,12 @@ const NavBar = (props) => {
   return (
     <>
     <div className='NavBar'>
-      {/* <Link to='/category=business' className='NavBar-link'>US</Link>
-      <Link to='/category=business' className='NavBar-link'>World</Link>
-      <Link to='/category=business' className='NavBar-link'>Business</Link>
-      <Link to='/category=business' className='NavBar-link'>Entertainment</Link>
-      <Link to='/category=business' className='NavBar-link'>Tech</Link> */}
-      <div className="Logo"><i className="fas fa-kiwi-bird"></i></div>
+      <Link to='/'><div className="Logo"><i className="fas fa-kiwi-bird"></i></div></Link>
+      <div className="KiwiNewsContainer">
+        <div className="KiwiNewsText">
+          <p>kiwi<span className='Dot'>.</span></p>
+        </div>
+      </div>
       <div className="nav">
       {nav}
       </div>
@@ -50,32 +51,6 @@ const NavBar = (props) => {
         <p>{marquee}</p>
 
     </div>
-
-{/* 
-      
-      {
-          
-            props.news.map((news, idx) => 
-              console.log(news.description)
-            )
-
-      }
-
-      {
-
-        console.log(
-          
-          props.news.map((news, idx) => 
-            {
-              return(
-                news.description
-              )
-            }
-          ).join(',')
-        )
-      }
-
-       */}
     </>
 
   );
