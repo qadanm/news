@@ -20,7 +20,7 @@
 
 .NavBar-link{
     flex-direction: row;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 
@@ -52,4 +52,52 @@
     font-family: 'Josefin Sans', sans-serif;
     font-size: 2.3em;
     letter-spacing: 4px;
+}
+
+
+.locale{
+    width: 119px;
+    height: 52px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(8, 181, 181);
+}
+
+.weather{
+    background-color: rgb(8, 181, 181);
+    width: 119px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.temp{
+    display: flex;
+    align-content: center;
+    width: 40px;
+    height: 26px;
+    color: white;
+    font-size: 1.25em;
+    margin-top: 5px;
+}
+.icon{
+    width: 42px;
+    height: 42px;
+    margin-top: 5px;
+}
+
+.icon img{
+    width: 42px;
+    height: 42px;
+}
+.time{
+    width: 119px;
+    height: 18px;
+    text-align: center;
+    color: white;
 }

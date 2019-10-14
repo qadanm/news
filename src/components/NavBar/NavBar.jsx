@@ -8,8 +8,16 @@ import Marquee3k from 'marquee3000';
 const NavBar = (props) => {
  const marquee = props.desc
 
-
-
+ function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
 
   let nav = props.user ?
 
@@ -48,9 +56,25 @@ const NavBar = (props) => {
         data-speed="0.3"
         data-pausable="bool">
 
-        <p>{marquee}</p>
+        <p>{marquee} {console.log(props.temp)}</p>
 
     </div>
+    <div className="locale">
+      <div className="weather">
+          <div className="temp">
+            {props.temp}&deg;
+          </div>
+          <div className="icon">
+            <img
+                src={props.icon}
+                alt='...'
+              />
+          </div>
+        </div>
+          <div className="time">
+            {formatAMPM(new Date)}
+          </div>
+      </div>
     </>
 
   );

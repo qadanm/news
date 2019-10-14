@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, Link, Router, withRouter } from 'react-router-dom';
 import '../../pages/App/App.css';
 import { getNews } from '../../services/news-api';
+import {getCurrentLatLng} from '../../services/geolocation';
+import {getCurWeatherByLatLng} from '../../services/weather-api';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import HomeView from '../../components/HomeView/HomeView';
@@ -20,7 +22,11 @@ class App extends Component {
       user: userService.getUser(),
       news: [],
       desc: '',
-      fromHome: false
+      fromHome: false,
+      lat: null,
+      lng: null,
+      temp: null,
+      icon: ''
     };
   }
 
@@ -31,13 +37,25 @@ class App extends Component {
   async componentDidMount() {
     window.scrollTo(0,0)
     const news = await getNews();
+    const {lat, lng} = await getCurrentLatLng();
+    const weatherData = await getCurWeatherByLatLng(lat, lng);
+    console.log(weatherData);
     let desc = await news.articles.map(n => {
       return n.description
     }).join(' ')
-    this.setState({ news: news.articles, desc, fromHome:true});
+    this.setState({ 
+      news: news.articles, 
+      desc, 
+      fromHome: true,
+      lat,
+      lng,
+      temp: Math.round(weatherData.main.temp),
+      icon: weatherData.weather[0].icon
+    });
     console.log(this.state.news);
     console.log(this.state.desc);
     console.log("Hitiing")
+    console.log(this.state.temp)
   }
 
 
@@ -59,6 +77,8 @@ class App extends Component {
           handleLogout={this.handleLogout}
           news={this.state.news}
           desc={this.state.desc}
+          temp={this.state.temp}
+          icon={`https://openweathermap.org/img/w/${this.state.icon}.png`}
         />
         <Switch onUpdate={() => window.scrollTo(0, 0)}>
 
