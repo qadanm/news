@@ -24,6 +24,7 @@
   text-decoration: none;
   font-size: calc(2.7px + 1.6vmin);
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 .title p{
@@ -96,4 +97,29 @@ a {
 }
 .title{
   
+}
+
+
+
+@media screen and (max-width: 560px){
+
+  .news-square{
+    width: 64.8vmin;
+    height: 64.8vmin;
+  }
+
+  .img-container{
+    width: 64.8vmin;
+    height: 47.9vmin;
+  }
+  .img-container img{
+    width: 64.8vmin;
+    height: 47.9vmin;
+  }
+
+  .title{
+    width: 64.8vmin;
+    font-size: calc(2.7px + 2.3vmin);
+  }
+
 }

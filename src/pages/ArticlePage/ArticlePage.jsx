@@ -86,35 +86,4 @@ function ArticlePage(props) {
   );
 }
 
-
-// const ArticlePage = (props) => {
-
-//   {
-
-//     const article = props.news.filter(news=> {
-
-//       return(
-//         news
-//       )
-//     })
-
-//     const index = props.index.filter(idx => {
-//       return idx === {props.params.idx}
-//     })
-
-//     console.log(index,"<<<<<<<")
-
-
-
-//   }
-
-
-//   return(
-    
-
-//     <h1> السلام عليكم article page </h1>
-//   )
-
-//   };
-  
   export default ArticlePage;
