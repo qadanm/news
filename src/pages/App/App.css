@@ -40,8 +40,6 @@
   width: 37.5vmin;
   height: 24.75vmin;
 }
-
-
 .marquee3k .marquee3k__copy {
   padding-right: 30px;
   box-sizing: border-box;
@@ -52,7 +50,7 @@
   font-weight: bold;
   color: rgb(155, 155, 155);
   position: fixed;
-  bottom: 0
+  bottom: 0;
 }
 
 .news-square{

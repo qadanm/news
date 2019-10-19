@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link, Router, withRouter } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import '../../pages/App/App.css';
 import { getNews } from '../../services/news-api';
 import {getCurrentLatLng} from '../../services/geolocation';
@@ -10,7 +10,6 @@ import HomeView from '../../components/HomeView/HomeView';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ArticlePage from '../ArticlePage/ArticlePage';
-import { unlink } from 'fs';
 import Marquee3k from 'marquee3000';
 
 Marquee3k.init()
@@ -39,7 +38,6 @@ class App extends Component {
     const news = await getNews();
     const {lat, lng} = await getCurrentLatLng();
     const weatherData = await getCurWeatherByLatLng(lat, lng);
-    console.log(weatherData);
     let desc = await news.articles.map(n => {
       return n.description
     }).join(' ')
@@ -52,10 +50,6 @@ class App extends Component {
       temp: Math.round(weatherData.main.temp),
       icon: weatherData.weather[0].icon
     });
-    console.log(this.state.news);
-    console.log(this.state.desc);
-    console.log("Hitiing")
-    console.log(this.state.temp)
   }
 
 
@@ -108,7 +102,6 @@ class App extends Component {
             }/>
             <div className='ArticlesContainer'>
               {this.state.news.map((news, idx) => 
-              // <>
 
               <div className='articles' key={idx}>
                 <Link
@@ -117,7 +110,7 @@ class App extends Component {
 
                 <div className='news-square'>
                   <div className='img-container'>
-                    <img src={news.urlToImage} />
+                    <img src={news.urlToImage} alt="Article" />
                   </div>
                   <div className='title'>
                    <p>{news.title}</p>
@@ -127,9 +120,6 @@ class App extends Component {
                 </Link>
 
                 </div>
-
-
-                // </>
                 
               )}
               </div>

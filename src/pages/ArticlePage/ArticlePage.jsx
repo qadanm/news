@@ -1,6 +1,6 @@
 
-import React, { Component } from 'react';
-import { Link , Redirect} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../ArticlePage/ArticlePage.css'
 
 
@@ -42,7 +42,7 @@ function ArticlePage(props) {
             <p className="ArticlePageDescriptionText">{news.description}</p>
           </div>
           <div className="ArticlePageReadMoreContainer">
-            <a className="ArticlePageReadMoreText" href={`${news.url}`} target="_blank">Read More</a>
+            <a className="ArticlePageReadMoreText" href={`${news.url}`} target="_blank" rel="noopener noreferrer">Read More</a>
           </div>
           <div className="ArticlePageCheckOutContainer">
             <div className="ArticlePageCheckoutText">
@@ -51,7 +51,7 @@ function ArticlePage(props) {
           </div>
           <div className='ArticlesContainer'>
           {props.news.reverse().map((news, idx) => 
-              // <>
+
 
               <div className='articles' key={idx}>
                 <Link
@@ -60,7 +60,7 @@ function ArticlePage(props) {
 
                 <div className='news-square'>
                   <div className='img-container'>
-                    <img src={news.urlToImage} />
+                    <img src={news.urlToImage} alt="Article"/>
                   </div>
                   <div className='title'>
                    <p>{news.title}</p>
@@ -70,16 +70,13 @@ function ArticlePage(props) {
                 </Link>
 
                 </div>
-
-
-                // </>
                 
               )}
               </div>
         </div>
         :
         <div>
-          <h1 style={{textAlign: "center"}}>loading...</h1> {console.log('the loading',news)}
+          <h1 style={{textAlign: "center"}}>loading...</h1>
         </div>
       }
     </div>

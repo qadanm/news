@@ -24,7 +24,6 @@ const NavBar = (props) => {
     <div className='NavBar-link-user'>
 
       <Link to='' onClick={props.handleLogout} className='NavBar-link' id='user'>Log Out</Link>
-      {/* <Link to='' onClick='' className='NavBar-link' id='user'>Favorites</Link> */}
 
     </div>
     :
@@ -56,7 +55,7 @@ const NavBar = (props) => {
         data-speed="0.3"
         data-pausable="bool">
 
-        <p>{marquee} {console.log(props.temp)}</p>
+        <p>{marquee}</p>
 
     </div>
     <div className="locale">
@@ -72,7 +71,7 @@ const NavBar = (props) => {
           </div>
         </div>
           <div className="time">
-            {formatAMPM(new Date)}
+            {formatAMPM(new Date())}
           </div>
       </div>
     </>
